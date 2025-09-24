@@ -47,14 +47,14 @@ A divisão em treino e teste foi de 80/20, preservando a distribuição do targe
 
 O pipeline de pré-processamento implementou transformações robustas e matematicamente fundamentadas:
 
-  1 - Variáveis numéricas:
+Variáveis numéricas:
   
      - Imputação da mediana para lidar com outliers e valores ausentes, evitando distorções;
      - Padronização (Z-score) para normalizar escalas diferentes, essencial para modelos sensíveis à magnitude das features;
      - PowerTransformer (Yeo-Johnson) para reduzir assimetria, aproximando a distribuição à normalidade, favorecendo regressão linear e gradientes em modelos de boosting;
      - Winsorização aplicada para limitar valores extremos e reduzir impacto de outliers na modelagem.
 
-  2 - Variáveis categóricas:
+Variáveis categóricas:
   
      - Imputação da moda para valores ausentes;
      - OneHotEncoder para transformar categorias em representações numéricas, mantendo relação sem impor ordem.
