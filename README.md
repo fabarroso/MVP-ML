@@ -65,38 +65,37 @@ O pipeline garante consistência, reprodutibilidade e prevenção de vazamento, 
 O baseline foi Regressão Linear, escolhida por sua simplicidade e interpretabilidade, permitindo identificar relações globais entre homicídios e variáveis socioeconômicas. Apesar de capturar tendências gerais, apresentou limitações para outliers e padrões não-lineares.
 
 Modelos mais complexos foram aplicados para lidar com dispersão e heterogeneidade do target:
-Random Forest: captura relações não-lineares e interações complexas entre features, essencial para modelar efeitos combinados de renda, população e densidade;
-XGBoost e LightGBM: algoritmos de boosting que ajustam gradientes de erro de forma iterativa, robustos a outliers e variáveis correlacionadas, modelando nuances que regressão linear não consegue.
+ - Random Forest: captura relações não-lineares e interações complexas entre features, essencial para modelar efeitos combinados de renda, população e densidade;
+ - XGBoost e LightGBM: algoritmos de boosting que ajustam gradientes de erro de forma iterativa, robustos a outliers e variáveis correlacionadas, modelando nuances que regressão linear não consegue.
 
 Resultados rápidos (baseline vs candidatos):
-Linear Regression: R² ≈ 0.60, RMSE ≈ 3.18;
-Random Forest: R² ≈ 0.96, RMSE ≈ 1.04;
-XGBoost: R² ≈ 0.96, RMSE ≈ 1.05;
-LightGBM: R² ≈ 0.96, RMSE ≈ 1.00.
+ - Linear Regression: R² ≈ 0.60, RMSE ≈ 3.18;
+ - Random Forest: R² ≈ 0.96, RMSE ≈ 1.04;
+ - XGBoost: R² ≈ 0.96, RMSE ≈ 1.05;
+ - LightGBM: R² ≈ 0.96, RMSE ≈ 1.00.
 
 Isso evidencia que modelos de árvore e boosting capturam melhor a complexidade e variabilidade presentes nos dados.
 
 7. Validação e Otimização de Hiperparâmetros
 
 Modelos de boosting passaram por RandomizedSearchCV em amostras reduzidas de treino (40%) para otimizar hiperparâmetros:
-n_estimators: número de árvores;
-max_depth: profundidade máxima de cada árvore;
-learning_rate: taxa de aprendizado do gradiente.
+ - n_estimators: número de árvores;
+ - max_depth: profundidade máxima de cada árvore;
+ - learning_rate: taxa de aprendizado do gradiente.
 
 A validação cruzada (3 folds) foi usada para avaliar consistência e robustez, equilibrando desempenho e tempo computacional. Os resultados mostraram melhoria sutil nos modelos otimizados, mantendo alta generalização sem overfitting.
 
 8. Avaliação Final, Análise de Erros e Limitações
 
 O desempenho final foi avaliado com R², RMSE e MAE, além de análise de resíduos e matrizes de confusão adaptadas (regressão categorizada).
-
-Modelos de árvore e boosting apresentaram baixa dispersão residual e R² elevados, evidenciando ajuste adequado a heterogeneidade do target;
-Limitações incluem sensibilidade a outliers extremos e ausência de variáveis externas (dinâmicas espaciais, lags temporais).
+ - Modelos de árvore e boosting apresentaram baixa dispersão residual e R² elevados, evidenciando ajuste adequado a heterogeneidade do target;
+ - Limitações incluem sensibilidade a outliers extremos e ausência de variáveis externas (dinâmicas espaciais, lags temporais).
 
 9. Deep Learning
 
 Foi implementada uma rede neural MLP (Multi-Layer Perceptron):
-Estrutura: 2 camadas densas (64 e 32 neurônios), função de ativação ReLU e camada de saída linear;
-Otimização: Adam, loss MSE, early stopping para prevenção de overfitting;
-Pré-processamento: mesmo pipeline aplicado aos dados numéricos e categóricos.
+ - Estrutura: 2 camadas densas (64 e 32 neurônios), função de ativação ReLU e camada de saída linear;
+ - Otimização: Adam, loss MSE, early stopping para prevenção de overfitting;
+ - Pré-processamento: mesmo pipeline aplicado aos dados numéricos e categóricos.
 
 O modelo capturou interações não-lineares complexas, complementando modelos de boosting, especialmente em municípios com homicídios extremos.
