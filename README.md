@@ -2,15 +2,14 @@
 
 MVP - Machine Learning
 
-
-2. Reprodutibilidade e Ambiente
+2. Ambiente
 
 O ambiente de análise foi configurado para garantir total reprodutibilidade. Para isso, foram fixadas seeds em Python (random, numpy e TensorFlow) e no sistema operacional, garantindo que todas as operações aleatórias, como divisão de dados e inicialização de modelos, produzissem resultados consistentes. Bibliotecas utilizadas incluem:
 
  - pandas e numpy para manipulação de dados;
-scikit-learn para pré-processamento, pipelines, treino de modelos clássicos, validação cruzada e métricas de regressão;
-XGBoost e LightGBM para modelos de boosting;
-TensorFlow/Keras para redes neurais (Deep Learning).
+ - scikit-learn para pré-processamento, pipelines, treino de modelos clássicos, validação cruzada e métricas de regressão;
+ - XGBoost e LightGBM para modelos de boosting;
+ - TensorFlow/Keras para redes neurais (Deep Learning).
 
 As pipelines automatizadas garantem que qualquer transformação aplicada ao conjunto de treino seja reaplicada ao conjunto de teste, prevenindo vazamento de dados e mantendo a comparabilidade de resultados.
 
@@ -20,17 +19,13 @@ O dataset contém informações mensais de homicídios dolosos, indicadores soci
 
 Durante o entendimento da base, foram identificados:
 
-Variáveis numéricas e categóricas, algumas com valores ausentes;
-
-Forte assimetria e dispersão no target, com outliers significativos em grandes centros urbanos;
-
-Dependências entre indicadores socioeconômicos (densidade populacional, renda, desemprego) e homicídios.
+ - Variáveis numéricas e categóricas, algumas com valores ausentes;
+ - Forte assimetria e dispersão no target, com outliers significativos em grandes centros urbanos;
+ - Dependências entre indicadores socioeconômicos (densidade populacional, renda, desemprego) e homicídios.
 
 Tratamentos realizados:
-
-Remoção de linhas de anos incompletos para evitar viés temporal;
-
-Identificação de tipos de variáveis e tratamento de valores ausentes.
+ - Remoção de linhas de anos incompletos para evitar viés temporal;
+ - Identificação de tipos de variáveis e tratamento de valores ausentes.
 
 3.1 Análise Exploratória Resumida (EDA)
 
