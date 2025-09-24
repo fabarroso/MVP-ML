@@ -5,7 +5,6 @@ MVP - Machine Learning
 2. Ambiente
 
 O ambiente de análise foi configurado para garantir total reprodutibilidade. Para isso, foram fixadas seeds em Python (random, numpy e TensorFlow) e no sistema operacional, garantindo que todas as operações aleatórias, como divisão de dados e inicialização de modelos, produzissem resultados consistentes. Bibliotecas utilizadas incluem:
-
  - pandas e numpy para manipulação de dados;
  - scikit-learn para pré-processamento, pipelines, treino de modelos clássicos, validação cruzada e métricas de regressão;
  - XGBoost e LightGBM para modelos de boosting;
@@ -18,7 +17,6 @@ As pipelines automatizadas garantem que qualquer transformação aplicada ao con
 O dataset contém informações mensais de homicídios dolosos, indicadores socioeconômicos, demográficos e categóricos de municípios. O carregamento incluiu verificação de codificação e delimitadores, garantindo a integridade dos dados.
 
 Durante o entendimento da base, foram identificados:
-
  - Variáveis numéricas e categóricas, algumas com valores ausentes;
  - Forte assimetria e dispersão no target, com outliers significativos em grandes centros urbanos;
  - Dependências entre indicadores socioeconômicos (densidade populacional, renda, desemprego) e homicídios.
@@ -28,28 +26,19 @@ Tratamentos realizados:
  - Identificação de tipos de variáveis e tratamento de valores ausentes.
 
 3.1 Análise Exploratória Resumida (EDA)
-
 A EDA combinou análise gráfica e estatística descritiva:
-
-Distribuição do target: histograma com densidade e boxplot mostraram valores concentrados próximos a zero e outliers extremos;
-
-Evolução temporal: linha de tendência anual destacou ciclos de aumento e diminuição de homicídios, indicando influência de políticas públicas ou eventos específicos;
-
-Correlação: matrizes de correlação e heatmaps evidenciaram associações fortes entre homicídios e variáveis como densidade populacional e renda média;
-
-Variáveis categóricas: região administrativa e tipo de município apresentaram padrões de concentração distintos, justificando codificação via OneHotEncoder para modelagem.
+ - Distribuição do target: histograma com densidade e boxplot mostraram valores concentrados próximos a zero e outliers extremos;
+ - Evolução temporal: linha de tendência anual destacou ciclos de aumento e diminuição de homicídios, indicando influência de políticas públicas ou eventos específicos;
+ - Correlação: matrizes de correlação e heatmaps evidenciaram associações fortes entre homicídios e variáveis como densidade populacional e renda média;
+ - Variáveis categóricas: região administrativa e tipo de município apresentaram padrões de concentração distintos, justificando codificação via OneHotEncoder para modelagem.
 
 Essa análise permitiu selecionar features relevantes, reduzir ruído e definir estratégias adequadas para o pré-processamento e modelagem.
 
 4. Definição do Target, Variáveis e Divisão dos Dados
-
 O target foi definido como homicídios dolosos por município e ano, devido à sua relevância social, disponibilidade padronizada e natureza quantitativa. As features incluíram:
-
-Variáveis socioeconômicas (renda média, desemprego);
-
-Demográficas (população, densidade);
-
-Categóricas (região administrativa, tipo de município).
+ - Variáveis socioeconômicas (renda média, desemprego);
+ - Demográficas (população, densidade);
+ - Categóricas (região administrativa, tipo de município).
 
 A divisão em treino e teste foi de 80/20, preservando a distribuição do target. Isso permitiu avaliar a capacidade de generalização dos modelos em dados não vistos, considerando heterogeneidade e outliers.
 
