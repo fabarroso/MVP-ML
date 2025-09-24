@@ -2,6 +2,10 @@
 
 MVP - Machine Learning
 
+1. Escopo, Objetivo e Definição do Problema
+
+O objetivo é prever o número de homicídios dolosos por município e ano, capturando padrões não-lineares, heterogeneidade e outliers presentes nos dados. O estudo combina pré-processamento robusto, modelos de regressão clássicos e boosting, além de deep learning, garantindo análise comparativa, interpretável e com aplicabilidade em políticas públicas.
+
 2. Ambiente
 
 O ambiente de análise foi configurado para garantir total reprodutibilidade. Para isso, foram fixadas seeds em Python (random, numpy e TensorFlow) e no sistema operacional, garantindo que todas as operações aleatórias, como divisão de dados e inicialização de modelos, produzissem resultados consistentes. Bibliotecas utilizadas incluem:
@@ -99,3 +103,11 @@ Foi implementada uma rede neural MLP (Multi-Layer Perceptron):
  - Pré-processamento: mesmo pipeline aplicado aos dados numéricos e categóricos.
 
 O modelo capturou interações não-lineares complexas, complementando modelos de boosting, especialmente em municípios com homicídios extremos.
+
+10. Conclusões
+
+ - Árvores e boosting capturam melhor heterogeneidade e não-linearidade do target.
+ - Pipeline padronizado garante consistência, reprodutibilidade e robustez.
+ - Técnicas de interpretabilidade (SHAP, feature importance) identificam densidade populacional, indicadores socioeconômicos e região como fatores críticos.
+ - Resultados indicam generalização adequada, permitindo aplicação prática e suporte à formulação de políticas públicas.
+ - Melhorias futuras incluem a incorporação de variáveis espaciais, temporais e lags para aumentar capacidade preditiva.
