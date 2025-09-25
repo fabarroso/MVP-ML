@@ -30,6 +30,7 @@ Tratamentos realizados:
  - Identificação de tipos de variáveis e tratamento de valores ausentes.
 
 3.1 Análise Exploratória Resumida (EDA)
+
 A EDA combinou análise gráfica e estatística descritiva:
  - Distribuição do target: histograma com densidade e boxplot mostraram valores concentrados próximos a zero e outliers extremos;
  - Evolução temporal: linha de tendência anual destacou ciclos de aumento e diminuição de homicídios, indicando influência de políticas públicas ou eventos específicos;
